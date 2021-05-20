@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "279172727745",
+    "project_id": "kappyvista",
+    "storage_bucket": "kappyvista.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279172727745:android:af8d6f1a4d6e6fcdf5e540",
+        "android_client_info": {
+          "package_name": "com.kappyvista.kv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "279172727745-75ia42kc8gih0p36f8tobtbcrs6e5r54.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kappyvista.kv",
+            "certificate_hash": "d0281a3977414ca8f07009bf636fcd724ec4aee5"
+          }
+        },
+        {
+          "client_id": "279172727745-ipl2fagkkfqrqtej0sctp87m4vq96qpo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFVQMKCFZDgQjQ7mZ9qn6I9Arm9Uf_ANk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "279172727745-ipl2fagkkfqrqtej0sctp87m4vq96qpo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
