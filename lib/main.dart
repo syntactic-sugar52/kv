@@ -17,6 +17,7 @@ import 'package:kv/screens/landing_page/landing_utils.dart';
 import 'package:kv/screens/profile/profile_helpers.dart';
 import 'package:kv/screens/splash_screen/splash_screen.dart';
 import 'package:kv/screens/upload/upload_helpers.dart';
+import 'package:kv/screens/upload/upload_service.dart';
 import 'package:kv/services/auth.dart';
 import 'package:kv/services/db_future.dart';
 
@@ -26,6 +27,7 @@ import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'Root/root.dart';
+import 'screens/bottom_navigation/bottom_nav_helpers.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -64,10 +66,16 @@ class MyApp extends StatelessWidget {
           create: (_) => FeedHelpers(),
         ),
         ChangeNotifierProvider(
+          create: (_) => BottomNavHelpers(),
+        ),
+        ChangeNotifierProvider(
           create: (_) => HomePageHelpers(),
         ),
         ChangeNotifierProvider(
           create: (_) => ProfileHelpers(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => UploadService(),
         ),
         ChangeNotifierProvider(
           create: (_) => LandingService(),

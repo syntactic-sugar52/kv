@@ -18,7 +18,7 @@ class ButtonWidget extends StatelessWidget {
         padding: const EdgeInsets.all(18),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: kPurple,
+            primary: Colors.cyanAccent,
             elevation: 5,
             // primary: Color.fromRGBO(29, 194, 95, 1),
             minimumSize: Size.fromHeight(40),
@@ -34,12 +34,12 @@ class ButtonWidget extends StatelessWidget {
           Icon(
             icon,
             size: 16,
-            color: kWhite,
+            color: kBlack,
           ),
           SizedBox(width: 16),
           Text(
             text,
-            style: TextStyle(fontSize: 16, color: kWhite),
+            style: TextStyle(fontSize: 16, color: kBlack),
           ),
         ],
       );

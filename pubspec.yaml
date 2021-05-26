@@ -13,13 +13,18 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-  get:
+  marquee: ^2.1.0
+  chewie:
+  responsive_builder: ^0.4.1
   firebase_storage:
+  flutter_icons: ^1.1.0
   eva_icons_flutter:
+  camera: ^0.8.1
   font_awesome_flutter: ^9.0.0
   firebase_auth:
+  timeago: ^3.0.2
   cloud_firestore:
-  page_transition:
+  page_transition: "^1.1.7+6"
   cached_network_image:
   provider:
   animations:
@@ -27,11 +32,12 @@ dependencies:
   get_it:
   http:
   async:
+  video_thumbnail: ^0.3.3
   intl:
   uuid:
   image_picker:
   video_player:
-  flick_video_player: ^0.3.1
+  # flick_video_player: ^0.3.1
   file_picker: ^3.0.1
   path_provider:
   google_fonts:

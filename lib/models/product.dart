@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kv/models/user.dart';
 
 class Product extends ChangeNotifier {
-  String uid;
+  String productUid;
   String videoUrl;
   String thumbnail;
   String videoId;
@@ -14,39 +14,47 @@ class Product extends ChangeNotifier {
   String category;
   String cardType;
   String details;
+
   String title;
+  // String contactNumber;
   String price;
   int likes;
+  String quantity;
   int dislikes;
-  UserModel user;
+  String userUid;
   Product(
       {this.videoCreated,
       this.thumbnail,
       this.comments,
       this.details,
       this.cardType,
+      this.quantity,
       this.category,
-      this.uid,
+      this.productUid,
       this.dislikes,
       this.likes,
+      // this.contactNumber,
       this.price,
       this.videoId,
-      this.user,
+      this.userUid,
       this.reviews,
       this.title,
       this.videoUrl,
       this.views});
+
   Product.fromDocumentSnapshot({DocumentSnapshot doc}) {
     Map<String, dynamic> data = doc.data();
-    uid = doc.id;
+    productUid = doc.id;
     videoId = data['video_id'];
-    user = data['user'];
+    userUid = data['user_uid'];
     videoUrl = data['video_url'];
     comments = data['comments'];
     category = data['category'];
     cardType = data['card_type'];
     thumbnail = data['thumbnail'];
+    quantity = data['quantity'];
     price = data['price'];
+    // contactNumber = data['contact_number'];
     views = data['views'];
     title = data['title'];
     likes = data['likes'];
@@ -57,15 +65,17 @@ class Product extends ChangeNotifier {
   }
 
   Product.fromJson(Map<String, dynamic> json) {
-    user = json['userName'];
+    userUid = json['user_uid'];
     thumbnail = json['thumbnail'];
     videoUrl = json['video_url'];
     likes = json['likes'];
     dislikes = json['dislikes'];
     reviews = json['reviews'];
     comments = json['comments'];
+    quantity = json['quantity'];
     videoCreated = json['video_created'];
-    uid = json['uid'];
+    productUid = json['product_uid'];
+    // contactNumber = json['contact_number'];
     cardType = json['catd_type'];
     thumbnail = json['thumbnail'];
     details = json['details'];
@@ -75,15 +85,17 @@ class Product extends ChangeNotifier {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    data['user'] = this.user;
+    data['user_uid'] = this.userUid;
     data['thumbnail'] = this.thumbnail;
     data['video_url'] = this.videoUrl;
     data['video_created'] = this.videoCreated;
     data['video_id'] = this.videoId;
-    data['uid'] = this.uid;
+    data['uprooduct_uid'] = this.productUid;
     data['price'] = this.price;
+    // data['contact_number'] = this.contactNumber;
     data['likes'] = this.likes;
     data['card_type'] = this.cardType;
+    data['quantity'] = this.quantity;
     data['category'] = this.category;
     data['title'] = this.title;
     data['details'] = this.details;

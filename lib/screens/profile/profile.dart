@@ -1,8 +1,13 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 // import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kv/Root/root.dart';
+import 'package:kv/constants/colors.dart';
 import 'package:kv/screens/profile/profile_screen.dart';
+import 'package:kv/screens/upload/add_video.dart';
+import 'package:kv/screens/upload/upload_screen.dart';
 import 'package:kv/services/auth.dart';
 
 import 'package:provider/provider.dart';
@@ -11,12 +16,13 @@ class Profile extends StatelessWidget {
   buildButton(context) => Container(
         padding: const EdgeInsets.only(left: 80, top: 0, right: 80, bottom: 0),
         child: FlatButton(
-            color: Color(0xff80ffdb),
+            color: Colors.cyanAccent,
+            // color: Color(0xff80ffdb),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
-              side: BorderSide(color: Color(0xff80ffdb)),
+              side: BorderSide(color: Colors.cyanAccent),
             ),
-            textColor: Colors.black,
+            textColor: kBlack,
             child: Text(
               "LOG OUT",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
@@ -33,19 +39,18 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff252525),
+      backgroundColor: kBlack,
+      // backgroundColor: Color(0xff252525),
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        backgroundColor: Color(0xff252525),
-        centerTitle: true,
-        // leading: IconButton(
-        //     icon: Icon(
-        //       Icons.arrow_back_sharp,
-        //       color: Colors.white,
-        //     ),
-        //     onPressed: () {
-        //       Navigator.pop(context);
-        //     }),
+        backgroundColor: kBlack,
+        // backgroundColor: Color(0xff252525),
+        // centerTitle: true,
+        // leading: CircleAvatar(
+        //   backgroundColor: Colors.grey,
+        //   radius: 14,
+        // ),
+
         title: Text(
           "Profile",
           style: TextStyle(
@@ -54,6 +59,17 @@ class Profile extends StatelessWidget {
               fontWeight: FontWeight.w600,
               color: Colors.white),
         ),
+        actions: [
+          IconButton(
+              icon: Icon(
+                Feather.camera,
+                color: kWhiteColor,
+              ),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => UploadScreen()));
+              })
+        ],
       ),
       body: Column(
         children: [
@@ -61,14 +77,15 @@ class Profile extends StatelessWidget {
             height: 30,
           ),
           ListView(
-            physics: AlwaysScrollableScrollPhysics(),
+            physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             children: [
               SizedBox(
                 height: 20,
               ),
               Container(
-                color: Color(0xff252525),
+                color: kBlack,
+                // color: Color(0xff252525),
                 child: ListTile(
                   leading: Text(
                     "My Profile",
@@ -85,13 +102,17 @@ class Profile extends StatelessWidget {
                     child: Icon(
                       Icons.arrow_forward_ios,
                       size: 15,
-                      color: Color(0xff64dfdf),
+                      color: Colors.cyanAccent,
+                      // color: Color(0xff64dfdf),
                     ),
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
               Container(
-                color: Color(0xff252525),
+                color: kBlack,
                 child: ListTile(
                   leading: Text(
                     "Edit Profile",
@@ -104,11 +125,8 @@ class Profile extends StatelessWidget {
                       //     MaterialPageRoute(
                       //         builder: (context) => EditProfileScreen()));
                     },
-                    child: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15,
-                      color: Color(0xff64dfdf),
-                    ),
+                    child: Icon(Icons.arrow_forward_ios,
+                        size: 15, color: Colors.cyanAccent),
                   ),
                 ),
               ),
@@ -126,8 +144,12 @@ class Profile extends StatelessWidget {
               //     ),
               //   ),
               // ),
+              SizedBox(
+                height: 20,
+              ),
               Container(
-                color: Color(0xff252525),
+                color: kBlack,
+                // color: Color(0xff252525),
                 child: ListTile(
                   leading: Text(
                     "History",
@@ -136,12 +158,16 @@ class Profile extends StatelessWidget {
                   trailing: Icon(
                     Icons.arrow_forward_ios,
                     size: 15,
-                    color: Color(0xff64dfdf),
+                    color: Colors.cyanAccent,
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
               Container(
-                color: Color(0xff252525),
+                color: kBlack,
+                // color: Color(0xff252525),
                 child: ListTile(
                   leading: Text(
                     "Payment Details",
@@ -152,7 +178,28 @@ class Profile extends StatelessWidget {
                     child: Icon(
                       Icons.arrow_forward_ios,
                       size: 15,
-                      color: Color(0xff64dfdf),
+                      color: Colors.cyanAccent,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                color: kBlack,
+                // color: Color(0xff252525),
+                child: ListTile(
+                  leading: Text(
+                    "Log Out",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  trailing: GestureDetector(
+                    onTap: () {},
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 15,
+                      color: Colors.cyanAccent,
                     ),
                   ),
                 ),
@@ -160,10 +207,7 @@ class Profile extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.2,
               ),
-              buildButton(context),
-              SizedBox(
-                height: 20,
-              )
+              // buildButton(context),
             ],
           ),
         ],

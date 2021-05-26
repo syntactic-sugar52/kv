@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kv/models/auth_model.dart';
 import 'package:kv/models/user.dart';
 import 'package:kv/provider/current_user.dart';
+import 'package:kv/screens/bottom_navigation/bottom_nav_helpers.dart';
+import 'package:kv/screens/bottom_navigation/bottom_navigation.dart';
 import 'package:kv/screens/homepage/home_page.dart';
 import 'package:kv/screens/landing_page/landing_page.dart';
 import 'package:kv/screens/splash_screen/splash_screen.dart';
@@ -44,7 +46,7 @@ class _RootState extends State<Root> {
         retVal = LandingPage();
         break;
       case AuthStatus.loggedIn:
-        retVal = HomePage();
+        retVal = BottomNavigationScreen();
         break;
       default:
     }

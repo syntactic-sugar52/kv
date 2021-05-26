@@ -1,6 +1,7 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kv/constants/colors.dart';
 import 'package:kv/models/user.dart';
@@ -47,6 +48,33 @@ class HomePageHelpers with ChangeNotifier {
         pageController.jumpToPage(val);
         notifyListeners();
       },
+    );
+  }
+
+  Widget getAppBar() {
+    return AppBar(
+      backgroundColor: kBlack,
+      elevation: 0,
+      title: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Kappyvista",
+              style: TextStyle(
+                  letterSpacing: 1,
+                  fontSize: 20,
+                  color: kWhiteColor,
+                  fontWeight: FontWeight.bold),
+            ),
+            Icon(
+              Entypo.shopping_cart,
+              color: kWhiteColor,
+            )
+          ],
+        ),
+      ),
     );
   }
 }

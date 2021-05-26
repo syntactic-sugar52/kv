@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:kv/constants/colors.dart';
 import 'package:kv/constants/constants.dart';
 import 'package:kv/models/user.dart';
+import 'package:kv/screens/profile/profile.dart';
 import 'package:kv/screens/profile/profile_helpers.dart';
 import 'package:kv/services/auth.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -20,12 +22,12 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: kPrimaryBackground,
+        backgroundColor: kBlack,
         appBar: AppBar(
           leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
-                color: kWhite,
+                color: kWhiteColor,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -36,9 +38,11 @@ class ProfileScreen extends StatelessWidget {
                   EvaIcons.moreHorizotnal,
                   color: kWhite,
                 ),
-                onPressed: () {})
+                onPressed: () {
+                  //
+                })
           ],
-          backgroundColor: kPrimaryBackground,
+          backgroundColor: kBlack,
           // title: RichText(
           //   text: TextSpan(
           //       text: 'My ',
@@ -85,8 +89,7 @@ class ProfileScreen extends StatelessWidget {
                     }
                   }),
               decoration: BoxDecoration(
-                  color: kPrimaryBackground,
-                  borderRadius: BorderRadius.circular(15.0)),
+                  color: kBlack, borderRadius: BorderRadius.circular(15.0)),
             ),
           ),
         ));

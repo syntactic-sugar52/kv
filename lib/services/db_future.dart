@@ -39,44 +39,63 @@ class DBFuture extends ChangeNotifier {
     return retVal;
   }
 
-  // Future<String> createProduct(
-  //     Product product, String videoId, String userUid) async {
-  //   String retVal = "error";
+  Future<String> createProduct(Product product, String productId) async {
+    String retVal = "error";
 
-  //   try {
-  //     await FirebaseFirestore.instance
-  //         .collection("Post")
-  //         .doc(userUid)
-  //         .collection("Product")
-  //         .doc(videoId)
-  //         .set({
-  //       "video_id": videoId,
-  //       "uid": product.uid,
-  //       'created_at': product.createdAt,
-  //       "details": product.details,
-  //       "video_url": product.videoUrl,
-  //       "reviews": product.reviews,
-  //       "upvote": product.upvote,
-  //       "downvote": product.downvote,
-  //       "title": product.title,
-  //       "price": product.price,
-  //       "user_uid": userUid,
-  //       "category": product.category,
-  //       "comments": product.comments
-  //     });
-  //     retVal = "success";
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  //   return retVal;
-  // }
+    try {
+      DocumentReference docRef =
+          FirebaseFirestore.instance.collection("Product").doc();
+      docRef.set({
+        "video_id": product.videoId,
+        "product_uid": docRef.id,
+        'video_created': product.videoCreated,
+        "details": product.details,
+        "video_url": product.videoUrl,
+        "reviews": product.reviews,
+        "likes": product.likes,
+        "dislikes": product.dislikes,
+        "views": product.views,
+        "title": product.title,
+        "price": product.price,
+        "user_uid": product.userUid,
+        "category": product.category,
+        "quantity": product.quantity,
+        "comments": product.comments,
+        "thumbnail": product.thumbnail,
+      });
+      retVal = "success";
+    } catch (e) {
+      print(e);
+    }
+    return retVal;
+  }
 
-  //   Future<UserModel> getUserProfilePhoto(String uid) async {
-  //   UserModel retVal;
+  Future<Product> getProduct(String productId) async {
+    Product retVal;
+
+    try {
+      DocumentSnapshot _docSnapshot =
+          await _firestore.collection("Product").doc(productId).get();
+      retVal = Product.fromDocumentSnapshot(doc: _docSnapshot);
+    } catch (e) {
+      print(e);
+    }
+    notifyListeners();
+    return retVal;
+  }
+
+// Future getVideoId()async{
+//   var document = await _firestore.collection("Product").doc('');
+// document.get() => then(function(document) {
+//     print(document("name"));
+// });
+// }
+  // Future getProduct(){
+  //    UserModel retVal;
 
   //   try {
   //     DocumentSnapshot _docSnapshot =
-  //         await _firestore.collection("users").doc(uid);
+  //         await _firestore.collection("Product").doc(uid).get();
   //     retVal = UserModel.fromDocumentSnapshot(doc: _docSnapshot);
   //   } catch (e) {
   //     print(e);

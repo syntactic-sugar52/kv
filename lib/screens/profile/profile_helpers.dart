@@ -52,7 +52,7 @@ class ProfileHelpers with ChangeNotifier {
                           children: [
                             Icon(
                               EvaIcons.email,
-                              color: kBlueButton,
+                              color: Colors.cyanAccent,
                               size: 13,
                             ),
                             SizedBox(
@@ -61,7 +61,7 @@ class ProfileHelpers with ChangeNotifier {
                             Text(
                               data['email'],
                               style: TextStyle(
-                                  color: kWhite,
+                                  color: kWhiteColor,
                                   fontSize: 12.0,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -87,7 +87,7 @@ class ProfileHelpers with ChangeNotifier {
                                       TextStyle(color: kWhite, fontSize: 14.0),
                                 ),
                                 Text(
-                                  'Following',
+                                  'Followers',
                                   style: TextStyle(
                                       color: kWhite,
                                       fontWeight: FontWeight.w700,
@@ -107,7 +107,7 @@ class ProfileHelpers with ChangeNotifier {
                                       TextStyle(color: kWhite, fontSize: 14.0),
                                 ),
                                 Text(
-                                  'Post',
+                                  'StoreList',
                                   style: TextStyle(
                                       color: kWhite,
                                       fontWeight: FontWeight.w700,
@@ -153,7 +153,7 @@ class ProfileHelpers with ChangeNotifier {
         height: 25.0,
         width: 350.0,
         child: Divider(
-          color: kWhite,
+          color: kWhiteColor,
         ),
       ),
     );
@@ -179,7 +179,9 @@ class ProfileHelpers with ChangeNotifier {
               Text(
                 'Recently Added',
                 style: TextStyle(
-                    fontWeight: FontWeight.w700, fontSize: 14.0, color: kWhite),
+                    fontWeight: FontWeight.w700,
+                    fontSize: 14.0,
+                    color: kWhiteColor),
               ),
             ],
           ),
@@ -189,7 +191,7 @@ class ProfileHelpers with ChangeNotifier {
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
               // color: Colors.amber,
-              color: kPrimaryBackground,
+              color: kBlack,
               borderRadius: BorderRadius.circular(15.0)),
         )
       ],
@@ -203,8 +205,8 @@ class ProfileHelpers with ChangeNotifier {
         child: Column(
           children: [
             Text(
-              "No Posts Yet",
-              style: TextStyle(color: kWhite),
+              "No StoreList Yet",
+              style: TextStyle(color: kWhiteColor),
             ),
             SizedBox(
               height: 5,
@@ -216,7 +218,7 @@ class ProfileHelpers with ChangeNotifier {
         height: MediaQuery.of(context).size.height * 0.5,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-            color: kPrimaryBackground.withOpacity(0.4),
+            color: kBlack.withOpacity(0.4),
             borderRadius: BorderRadius.circular(5.0)),
       ),
     );
